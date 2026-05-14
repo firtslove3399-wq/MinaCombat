@@ -408,6 +408,265 @@ body{padding-bottom:calc(94px + env(safe-area-inset-bottom,0px))!important;}
   .profileBadgeTitle{font-size:12px}
 }
 
+
+/* v74.2 Kanji list minimalist cleanup */
+.kanjiLevelGrid{margin-top:18px!important}
+.kanjiModeGrid{margin-top:18px!important}
+.kanjiLevelCard{padding-top:18px!important;padding-bottom:18px!important}
+
+
+
+/* === Combat Test Premium Stage Cards v75 polish === */
+#testCenter .testCenterGrid{
+  gap:18px;
+}
+#testCenter .testPack{
+  border-radius:28px;
+  padding:24px 18px 22px;
+  margin:0;
+  box-shadow:0 18px 44px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.07);
+}
+#testCenter .cleanPack{
+  background:linear-gradient(145deg,rgba(20,184,166,.22),rgba(15,23,42,.38));
+  border-color:rgba(103,232,249,.18);
+}
+#testCenter .deathStage{
+  background:linear-gradient(145deg,rgba(127,29,29,.25),rgba(245,158,11,.10),rgba(15,23,42,.42));
+  border-color:rgba(251,191,36,.20);
+}
+#testCenter .stageBadge{
+  margin-bottom:14px;
+  padding:8px 16px;
+  font-size:14px;
+  letter-spacing:.2px;
+}
+#testCenter .testPack h2{
+  margin:0 0 12px;
+  font-size:clamp(34px,9vw,48px);
+  line-height:1.08;
+  text-align:center;
+  letter-spacing:-.8px;
+}
+#testCenter .stageSub{
+  max-width:520px;
+  margin:0 auto 18px;
+  padding:0 4px;
+  font-size:clamp(18px,4.8vw,24px);
+  line-height:1.45;
+  font-weight:1000;
+  color:#f8fafc;
+  opacity:.96;
+  text-align:center;
+  text-shadow:0 8px 22px rgba(0,0,0,.28);
+}
+#testCenter .testMeta{
+  margin:14px 0 18px!important;
+  gap:10px;
+}
+#testCenter .testPill{
+  padding:9px 14px;
+  font-size:14px;
+  background:rgba(255,255,255,.105);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06);
+}
+#testCenter .mainBtn,#testCenter .challengeBtn{
+  width:min(100%,520px);
+  margin-left:auto;
+  margin-right:auto;
+  min-height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+@media(max-width:420px){
+  #testCenter .testCenterGrid{gap:16px}
+  #testCenter .testPack{padding:22px 14px 20px;border-radius:26px}
+  #testCenter .stageSub{font-size:19px;margin-bottom:16px}
+  #testCenter .testPill{font-size:13px;padding:8px 12px}
+}
+
+
+/* v74.3 Combat Test minimalist header */
+.combatTestHeader{
+  text-align:center;
+  margin-bottom:25px;
+}
+.combatTestTitle{
+  font-size:28px;
+  font-weight:900;
+  letter-spacing:2px;
+  color:#fff;
+  line-height:1.15;
+  text-transform:uppercase;
+  text-shadow:0 0 18px rgba(255,255,255,.12);
+}
+.combatTestSubtitle{
+  margin-top:4px;
+  font-size:15px;
+  font-weight:400;
+  opacity:.8;
+  color:#e5e7eb;
+  line-height:1.45;
+}
+@media(max-width:420px){
+  .combatTestHeader{margin-bottom:22px}
+  .combatTestTitle{font-size:26px;letter-spacing:1.7px}
+  .combatTestSubtitle{font-size:14px}
+}
+
+
+
+/* === Smart Review Drawer: compact premium accordion === */
+.randomZone.smartDrawer{margin:12px 0 18px;border:1px solid rgba(103,232,249,.18);border-radius:26px;padding:0;background:linear-gradient(145deg,rgba(8,145,178,.14),rgba(147,51,234,.075));box-shadow:0 16px 36px rgba(0,0,0,.20),inset 0 1px 0 rgba(255,255,255,.055);overflow:hidden}
+.randomZone.smartDrawer summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px 52px 16px 18px;min-height:66px;font-size:18px;font-weight:1000;letter-spacing:.25px;color:#e0f2fe;position:relative;line-height:1.35}
+.randomZone.smartDrawer summary::-webkit-details-marker{display:none}
+.randomZone.smartDrawer summary:after{content:'＋';position:absolute;right:16px;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:999px;display:grid;place-items:center;background:rgba(255,255,255,.09);color:#67e8f9;font-size:23px;line-height:1;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+.randomZone.smartDrawer[open] summary:after{content:'−'}
+.randomDrawerBody{padding:0 14px 16px;display:grid;gap:12px}
+.randomZone.smartDrawer .randomCardGrid{grid-template-columns:repeat(4,1fr);gap:10px}
+.randomZone.smartDrawer .randomCard{border-radius:20px;padding:14px 10px;min-height:112px;box-shadow:0 10px 24px rgba(0,0,0,.14),inset 0 1px 0 rgba(255,255,255,.055)}
+.randomZone.smartDrawer .randomCardIcon{font-size:28px;margin-bottom:6px}
+.randomZone.smartDrawer .randomCardTitle{font-size:17px;line-height:1.25}
+.randomZone.smartDrawer .randomCardMeta{font-size:12px;margin-top:5px;line-height:1.35;max-width:180px}
+.randomZone.smartDrawer .blacklistCount{margin-top:7px;padding:5px 9px;font-size:11px}
+.randomZone.smartDrawer .customRandomPanel{margin-top:0;padding:12px;border-radius:18px}
+@media(max-width:760px){.randomZone.smartDrawer .randomCardGrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:420px){.randomZone.smartDrawer summary{font-size:16px;padding:15px 48px 15px 14px}.randomZone.smartDrawer .randomCardGrid{grid-template-columns:1fr 1fr;gap:9px}.randomZone.smartDrawer .randomCard{padding:13px 8px;min-height:104px}.randomZone.smartDrawer .randomCardTitle{font-size:15.5px}.randomZone.smartDrawer .randomCardMeta{font-size:11.5px}.randomZone.smartDrawer .randomCardIcon{font-size:25px}.randomZone.smartDrawer .customInputs{grid-template-columns:1fr 1fr}}
+
+
+/* === v75 Profile Migration: keep Header pure brand === */
+#authStatusBar.authStatusBar{display:none!important;margin:0!important;padding:0!important;height:0!important;overflow:hidden!important;}
+.premiumHero{padding-bottom:30px!important;}
+.profileHeroBox{background:radial-gradient(circle at 50% 0,rgba(103,232,249,.18),rgba(15,23,42,.76))!important;border-color:rgba(103,232,249,.24)!important;}
+.profileWarriorName{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;}
+.profileWarriorName .profileLabel{font-size:15px;letter-spacing:.8px;color:#a5f3fc;font-weight:1000;text-transform:uppercase;opacity:.95;}
+.profileWarriorName .profileName{font-size:clamp(28px,7vw,42px);font-weight:1000;color:#ffffff;text-shadow:0 0 24px rgba(103,232,249,.28);line-height:1.15;word-break:break-word;}
+.profileSectionTitle{font-size:15px;font-weight:1000;color:#c7d2fe;letter-spacing:.8px;text-align:center;margin:2px 0 -4px;opacity:.92;}
+.profileDivider{height:1px;background:linear-gradient(90deg,transparent,rgba(103,232,249,.22),transparent);margin:2px 0;}
+.profileLoginNotice{border:1px solid rgba(251,191,36,.22);border-radius:22px;padding:14px;background:rgba(251,191,36,.08);font-size:14px;line-height:1.6;color:#fef3c7;text-align:center;}
+.profileActions .profileActionBtn{min-height:50px;}
+
+
+
+/* === v75 Smart Study Accordion: 3-layer main tab === */
+.studyMainTitle{
+  text-align:center;
+  font-size:28px;
+  font-weight:1000;
+  letter-spacing:1.2px;
+  margin-bottom:4px;
+  color:#fff;
+  text-shadow:0 0 18px rgba(103,232,249,.16);
+}
+.studyMainSub{
+  text-align:center;
+  font-size:14px;
+  font-weight:800;
+  letter-spacing:.3px;
+  color:#a5f3fc;
+  opacity:.82;
+  margin-bottom:14px;
+}
+.mainStudyStack{display:grid;gap:14px;margin-top:14px}
+.mainStudyDrawer{
+  border:1px solid rgba(103,232,249,.18);
+  border-radius:26px;
+  overflow:hidden;
+  background:linear-gradient(145deg,rgba(8,145,178,.14),rgba(147,51,234,.075));
+  box-shadow:0 16px 36px rgba(0,0,0,.20),inset 0 1px 0 rgba(255,255,255,.055);
+}
+.mainStudyDrawer>summary{
+  list-style:none;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:17px 54px 17px 18px;
+  min-height:68px;
+  font-size:18px;
+  font-weight:1000;
+  letter-spacing:.35px;
+  color:#e0f2fe;
+  position:relative;
+  line-height:1.35;
+}
+.mainStudyDrawer>summary::-webkit-details-marker{display:none}
+.mainStudyDrawer>summary:after{
+  content:'＋';
+  position:absolute;
+  right:16px;
+  top:50%;
+  transform:translateY(-50%);
+  width:34px;
+  height:34px;
+  border-radius:999px;
+  display:grid;
+  place-items:center;
+  background:rgba(255,255,255,.09);
+  color:#67e8f9;
+  font-size:23px;
+  line-height:1;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
+}
+.mainStudyDrawer[open]>summary:after{content:'−'}
+.mainDrawerBody{padding:0 14px 16px;display:grid;gap:12px}
+.mainStudyDrawer.vocabDrawer{background:linear-gradient(145deg,rgba(30,64,175,.22),rgba(14,165,233,.08));border-color:rgba(96,165,250,.22)}
+.mainStudyDrawer.grammarDrawer{background:linear-gradient(145deg,rgba(109,40,217,.20),rgba(236,72,153,.07));border-color:rgba(216,180,254,.18)}
+.mainStudyDrawer .roadmapWrap{margin-top:0}
+.embeddedGrammarCard{display:none}
+.embeddedGrammarCard.show{display:block}
+@media(max-width:520px){
+  .studyMainTitle{font-size:25px;letter-spacing:.8px}
+  .studyMainSub{font-size:13px;margin-bottom:12px}
+  .mainStudyDrawer>summary{font-size:16px;padding:15px 48px 15px 14px;min-height:64px}
+  .mainStudyDrawer>summary:after{right:12px;width:32px;height:32px}
+  .mainDrawerBody{padding:0 12px 14px}
+}
+
+
+
+/* === v76 Clean split: Vocab tab and Grammar tab separated === */
+.mainStudyStack{display:grid;gap:14px;margin-top:18px;}
+.mainStudyDrawer{border:1px solid rgba(255,255,255,.13);border-radius:26px;overflow:hidden;background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(15,23,42,.36));box-shadow:0 16px 34px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.055);}
+.mainStudyDrawer>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:center;text-align:center;min-height:68px;padding:18px 54px;position:relative;font-size:20px;font-weight:1000;letter-spacing:.45px;color:#e0f2fe;}
+.mainStudyDrawer>summary::-webkit-details-marker{display:none}
+.mainStudyDrawer>summary:after{content:'＋';position:absolute;right:16px;top:50%;transform:translateY(-50%);display:grid;place-items:center;width:34px;height:34px;border-radius:999px;background:rgba(255,255,255,.09);color:#a5f3fc;font-size:23px;line-height:1;}
+.mainStudyDrawer[open]>summary:after{content:'−'}
+.mainDrawerBody{padding:0 14px 16px;}
+.vocabDrawer{background:linear-gradient(145deg,rgba(30,64,175,.20),rgba(14,165,233,.075));border-color:rgba(96,165,250,.22);}
+.randomZone.smartDrawer{margin:0!important;padding:0!important;background:linear-gradient(145deg,rgba(8,145,178,.16),rgba(147,51,234,.08))!important;}
+.randomDrawerBody{padding-top:0;}
+.vocabLocked{opacity:.50!important;filter:grayscale(.60)!important;cursor:not-allowed!important;background:linear-gradient(145deg,rgba(148,163,184,.10),rgba(15,23,42,.22))!important;}
+.vocabLocked small{color:#cbd5e1!important;opacity:.72!important;}
+.grammarOnlyWrap{margin-top:16px;}
+@media(max-width:520px){.mainStudyDrawer>summary{min-height:64px;padding:17px 48px;font-size:17px}.mainStudyDrawer>summary:after{right:12px;width:32px;height:32px}.mainDrawerBody{padding:0 12px 14px}}
+
+
+/* === v83 Cross Platform Edition: iOS Safari smooth navigation === */
+html, body{
+  overscroll-behavior-y:none!important;
+  -webkit-overflow-scrolling:touch;
+}
+.lessonGrid,
+.grammarMenu,
+.roadmapWrap,
+.mainStudyStack,
+.mainDrawerBody,
+.randomDrawerBody,
+.kanjiLevelGrid,
+.kanjiModeGrid,
+.testCenterGrid,
+.profileArsenal,
+.authorModalCard,
+.authCard,
+.profileCard{
+  -webkit-overflow-scrolling:touch;
+}
+section{
+  -webkit-overflow-scrolling:touch;
+}
+
 </style>
 
 
@@ -469,22 +728,23 @@ body{padding-bottom:calc(94px + env(safe-area-inset-bottom,0px))!important;}
 </section>
 
 <section id="kanjicombat" class="hidden">
-  <button class="backBtn" onclick="showPage('home')">Trang chủ</button>
+  <button class="backBtn" onclick="backOneStep()">Trang chủ</button>
   <div class="card" id="kanjiCombatRoot"></div>
 </section>
-<section id="vocab" class="hidden"><button class="backBtn" onclick="showPage('home')">Trang chủ</button><div id="vocabHeaderCard" class="card"><div class="title">🟦 TỪ VỰNG & KANJI</div><div class="desc">Chọn cấp độ để bắt đầu lộ trình.</div><div class="modeRow"><button id="mMeaning" class="modeBtn active" onclick="setMode('meaning')">Nghĩa</button><button id="mReading" class="modeBtn" onclick="setMode('reading')">Đọc</button><button id="mKanji" class="modeBtn" onclick="setMode('kanji')">Kanji</button></div><div id="lessonList" class="lessonGrid"></div></div><div id="quizCard" class="card hidden"><div class="vocabFocusHead"><h2 id="vocabFocusTitle">Bài luyện</h2><button class="miniBack" onclick="backToVocabLessons()">Chọn bài khác</button></div><div class="modeRow compact"><button class="modeBtn active" data-modebtn="meaning" onclick="setMode('meaning')">Nghĩa</button><button class="modeBtn" data-modebtn="reading" onclick="setMode('reading')">Đọc</button><button class="modeBtn" data-modebtn="kanji" onclick="setMode('kanji')">Kanji</button></div><div class="vocabStats"><div class="statBox"><div class="statLabel">Tiến độ</div><div class="statValue" id="progressText">0 / 0 từ</div></div><div class="statBox"><div class="statLabel">Chính xác</div><div class="statValue" id="accuracyText">0%</div></div></div><div id="comboBox" class="comboBox soft"><div class="comboMain" id="comboMain">🔥 Combo x0</div><div class="comboMsg" id="comboMsg">Bắt đầu thôi.</div></div><div class="question" id="questionText"></div><div class="word" id="wordText"></div><button class="speak" onclick="speakCurrent()">🔊 Phát âm</button><div id="optionsBox"></div><div id="resultBox" class="result"></div><div id="learnBox" class="learn hidden"></div><button id="nextBtn" class="mainBtn hidden" onclick="nextQuestion()" style="margin-top:14px">Tiếp theo</button></div></section>
-<section id="grammar" class="hidden"><button class="backBtn" onclick="showPage('home')">Trang chủ</button><div class="card"><div class="title">🟪 NGỮ PHÁP</div><div class="desc">Chọn cấp độ để bắt đầu lộ trình.</div><div id="grammarList"></div></div></section>
-<section id="testcenter" class="hidden"><button class="backBtn" onclick="showPage('home')">Trang chủ</button><div class="card testMainCard"><div class="title">🧠 COMBAT TEST · Arsenal 300</div><div class="desc" style="text-align:center;margin-bottom:12px">70 câu N5 • 130 câu N4 • 100 câu Sinh Tử</div><div id="testCenter"></div></div></section>
+<section id="vocab" class="hidden"><button class="backBtn" onclick="backOneStep()">Trang chủ</button><div id="vocabHeaderCard" class="card"><div class="studyMainTitle">TỪ VỰNG & KANJI</div><div class="studyMainSub">Giáo trình Minna no 日本語</div><div class="modeRow"><button id="mMeaning" class="modeBtn active" onclick="setMode('meaning')">Nghĩa</button><button id="mReading" class="modeBtn" onclick="setMode('reading')">Đọc</button><button id="mKanji" class="modeBtn" onclick="setMode('kanji')">Kanji</button></div><div id="lessonList" class="lessonGrid"></div></div><div id="quizCard" class="card hidden"><div class="vocabFocusHead"><h2 id="vocabFocusTitle">Bài luyện</h2><button class="miniBack" onclick="backToVocabLessons()">Chọn bài khác</button></div><div class="modeRow compact"><button class="modeBtn active" data-modebtn="meaning" onclick="setMode('meaning')">Nghĩa</button><button class="modeBtn" data-modebtn="reading" onclick="setMode('reading')">Đọc</button><button class="modeBtn" data-modebtn="kanji" onclick="setMode('kanji')">Kanji</button></div><div class="vocabStats"><div class="statBox"><div class="statLabel">Tiến độ</div><div class="statValue" id="progressText">0 / 0 từ</div></div><div class="statBox"><div class="statLabel">Chính xác</div><div class="statValue" id="accuracyText">0%</div></div></div><div id="comboBox" class="comboBox soft"><div class="comboMain" id="comboMain">🔥 Combo x0</div><div class="comboMsg" id="comboMsg">Bắt đầu thôi.</div></div><div class="question" id="questionText"></div><div class="word" id="wordText"></div><button class="speak" onclick="speakCurrent()">🔊 Phát âm</button><div id="optionsBox"></div><div id="resultBox" class="result"></div><div id="learnBox" class="learn hidden"></div><button id="nextBtn" class="mainBtn hidden" onclick="nextQuestion()" style="margin-top:14px">Tiếp theo</button></div></section>
+<section id="grammar" class="hidden"><button class="backBtn" onclick="backOneStep()">Trang chủ</button><div class="card"><div class="title">🟪 NGỮ PHÁP</div><div class="desc">Chọn cấp độ để bắt đầu lộ trình.</div><div id="grammarList"></div></div></section>
+<section id="testcenter" class="hidden"><button class="backBtn" onclick="backOneStep()">Trang chủ</button><div class="card testMainCard"><div class="combatTestHeader"><div class="combatTestTitle">COMBAT TEST</div><div class="combatTestSubtitle">Hiểu rõ ngữ pháp</div></div><div id="testCenter"></div></div></section>
 
 <section id="profile" class="hidden">
-  <button class="backBtn" onclick="showPage('home')">Trang chủ</button>
+  <button class="backBtn" onclick="backOneStep()">Trang chủ</button>
   <div class="card">
     <div class="title">👤 CÁ NHÂN</div>
     <div class="profileArsenal" id="profileContent">
       <div class="profileHeroBox">
-        <div class="profileWarriorName">⚔️ Chiến binh: <span id="profileWarriorName">...</span></div>
-        <div class="profileSub">Quản lý huy hiệu, sao lưu chiến tích và tài khoản.</div>
+        <div class="profileWarriorName"><span class="profileLabel">⚔️ Chiến binh</span><span class="profileName" id="profileWarriorName">...</span></div>
+        <div class="profileSub">Tài khoản, huy hiệu và dữ liệu học tập của riêng bạn.</div>
       </div>
+      <div class="profileSectionTitle">🏅 HUY HIỆU CHIẾN BINH</div>
       <div class="profileBadgeWall">
         <div class="profileBadgeCard" id="profileBadgeN5">
           <div class="profileBadgeIcon">🥉</div>
@@ -502,6 +762,7 @@ body{padding-bottom:calc(94px + env(safe-area-inset-bottom,0px))!important;}
           <div class="profileBadgeNote">Phá Chặng 3</div>
         </div>
       </div>
+      <div class="profileDivider"></div>
       <div class="profileActions">
         <button class="profileActionBtn backup" type="button" onclick="profileBackupAction()">💾 Sao lưu chiến tích</button>
         <button class="profileActionBtn logout" type="button" onclick="logoutUser()">🚪 Đăng xuất</button>
@@ -1573,7 +1834,7 @@ function recordBlacklistCorrect(w){
 }
 function wrongWordsCount(){return Object.keys(getWrongWords()).length}
 function refreshBlacklistCount(){const el=byId('blacklistCount');if(el)el.textContent='Đang có '+wrongWordsCount()+' từ'}
-function startWrongWordsReview(){
+function startWrongWordsReview(){closeRandomDrawer&&closeRandomDrawer();
   const wrong=getWrongWords();
   const words=Object.keys(wrong).map(k=>{const w=findWordByWrongKey(k);return w?Object.assign({},w,{_wrongKey:k}):null}).filter(Boolean);
   if(!words.length){alert('Danh Sách Đen đang trống. Chưa có kẻ thù nào để phục thù 😎');refreshBlacklistCount();return;}
@@ -5207,9 +5468,9 @@ function renderTestCenter(){
   let s2=p.stage2||{best:0,attempts:0,rank:'-',cleared:false};
   let s3=p.stage3||{best:0,attempts:0,rank:'-',cleared:false};
   byId('testCenter').innerHTML=`<div class="testCenterGrid">
-    <div class="testPack cleanPack"><div class="stageBadge">🔥 Chặng 1</div><h2>Bài 1–25</h2><div class="stageSub">Kiểm tra nền móng N5 bằng 70 câu. Qua 80% mới mở đường sang N4.</div><div class="testMeta" style="justify-content:center"><span class="testPill">Best: ${s1.best||0}%</span><span class="testPill">Rank: ${s1.rank||'-'}</span></div><button class="mainBtn" onclick="startStageTest(1)">⚔️ Bắt đầu Chặng 1</button></div>
-    <div class="testPack ${s1.cleared?'cleanPack':'lockedPack compactLock'}"><div class="stageBadge">🐲 Chặng 2</div><h2>Bài 26–50</h2><div class="stageSub">130 câu N4, tập trung kính ngữ, bị động, sai khiến. Qua 70% mới mở Sinh Tử.</div><div class="testMeta" style="justify-content:center"><span class="testPill">Best: ${s2.best||0}%</span><span class="testPill">Rank: ${s2.rank||'-'}</span></div><button class="${s1.cleared?'mainBtn':'smallBtn'}" onclick="${s1.cleared?'startStageTest(2)':'alert(\'Qua Chặng 1 từ 80% đã rồi hãy đòi vào N4!\')'}">${s1.cleared?'🔥 Vào Chặng 2':'🔒 Chưa mở'}</button></div>
-    <div class="testPack deathStage ${s2.cleared?'':'lockedPack'}"><div class="stageBadge">💀 Chặng 3</div><h2>Đề Tổng Hợp Độ Khó Cao</h2><div class="stageSub">100 câu tổng hợp siêu khó: bài 6–50, ưu tiên bẫy bài 30–50.</div><div class="testMeta" style="justify-content:center"><span class="testPill">Best: ${s3.best||0}%</span><span class="testPill">Rank: ${s3.rank||'-'}</span></div><button class="challengeBtn" onclick="${s2.cleared?'startStageTest(3)':'alert(\'Ải Sinh Tử chưa mở. Đập xong Chặng 2 đã!\')'}">${s2.cleared?'🔥 Tiến vào Chặng 3 - Sinh Tử':'🔒 Khóa Sinh Tử'}</button></div>
+    <div class="testPack cleanPack"><div class="stageBadge">🔥 Chặng 1</div><h2>Bài 1–25</h2><div class="stageSub">⚔️ Đạt 80% để mở N4</div><div class="testMeta" style="justify-content:center"><span class="testPill">Best: ${s1.best||0}%</span><span class="testPill">Rank: ${s1.rank||'-'}</span></div><button class="mainBtn" onclick="startStageTest(1)">⚔️ Bắt đầu Chặng 1</button></div>
+    <div class="testPack ${s1.cleared?'cleanPack':'lockedPack compactLock'}"><div class="stageBadge">🐲 Chặng 2</div><h2>Bài 26–50</h2><div class="stageSub">🐲 Đạt 70% để vào Sinh Tử</div><div class="testMeta" style="justify-content:center"><span class="testPill">Best: ${s2.best||0}%</span><span class="testPill">Rank: ${s2.rank||'-'}</span></div><button class="${s1.cleared?'mainBtn':'smallBtn'}" onclick="${s1.cleared?'startStageTest(2)':'alert(\'Qua Chặng 1 từ 80% đã rồi hãy đòi vào N4!\')'}">${s1.cleared?'🔥 Vào Chặng 2':'🔒 Chưa mở'}</button></div>
+    <div class="testPack deathStage ${s2.cleared?'':'lockedPack'}"><div class="stageBadge">💀 Chặng 3</div><h2>Đề Tổng Hợp Độ Khó Cao</h2><div class="stageSub">☠️ Tổng hợp thực chiến cực hạn</div><div class="testMeta" style="justify-content:center"><span class="testPill">Best: ${s3.best||0}%</span><span class="testPill">Rank: ${s3.rank||'-'}</span></div><button class="challengeBtn" onclick="${s2.cleared?'startStageTest(3)':'alert(\'Ải Sinh Tử chưa mở. Đập xong Chặng 2 đã!\')'}">${s2.cleared?'🔥 Tiến vào Chặng 3 - Sinh Tử':'🔒 Khóa Sinh Tử'}</button></div>
   </div>`;
 }
 function startStageTest(stage){
@@ -5313,30 +5574,79 @@ function showTrainingUi(){let q=byId('quizCard');q.classList.remove('finishScree
 function resetVocabRun(){index=0;answers=[];combo=0;bestCombo=0;clearTimeout(comboTimer)}
 function rankFeedback(p){if(p>=90)return ['🔥 “Được đấy. Kanji bắt đầu rén rồi.”','👹 “Mina chắc cũng không muốn gặp bạn nữa.”'];if(p>=70)return ['😎 “Ổn áp. Não bắt đầu load tiếng Nhật rồi đấy.”','⚡ “Thiếu chút nữa là thành quái vật kanji.”'];if(p>=50)return ['😬 “Học có vẻ có vào… nhưng vào hơi chậm.”'];return ['💀 “ĐM học kiểu gì mà từ vựng đấm phát nào trúng phát đó.”','☠️ “Não đang AFK à trời.”','😡 “Thôi thôi thôi xong… chết dở… ĐM.”']}
 let currentPage='home';
-function showPage(id,pushHistory=true){
-  closeGrammarIntro && closeGrammarIntro();
-  closeKanjiOpenPanels && closeKanjiOpenPanels();
-  if(!byId(id))id='home';
-  currentPage=id;
+let navigationStack=['home'];
+let isPopNavigation=false;
+
+function normalizeAppPage(pageId){
+  const valid=['home','vocab','grammar','testcenter','kanjicombat','profile'];
+  return valid.includes(pageId)?pageId:'home';
+}
+function closeTransientUI(){
+  try{ closeGrammarIntro && closeGrammarIntro(); }catch(e){}
+  try{ closeKanjiOpenPanels && closeKanjiOpenPanels(); }catch(e){}
+  try{ closeRandomDrawer && closeRandomDrawer(); }catch(e){}
+  try{ closeMainAccordions && closeMainAccordions(); }catch(e){}
+  document.querySelectorAll('details[open]').forEach(d=>d.removeAttribute('open'));
+}
+function showPageContent(pageId){
+  pageId=normalizeAppPage(pageId);
+  closeTransientUI();
+  currentPage=pageId;
+
   ['home','vocab','grammar','testcenter','kanjicombat','profile'].forEach(x=>byId(x)?.classList.add('hidden'));
-  byId(id).classList.remove('hidden');
-  if(id==='vocab')renderLessons();
-  if(id==='grammar')renderGrammar();
-  if(id==='testcenter')renderTestCenter();
-  if(id==='kanjicombat')renderKanjiCombat();
-  if(id==='profile')renderProfilePage();
-  updateBottomNav(id);
-  if(pushHistory && window.history && history.pushState){try{history.pushState({page:id},'',location.pathname+location.search+'#'+id)}catch(e){}}
+  byId(pageId)?.classList.remove('hidden');
+
+  if(pageId==='vocab')renderLessons();
+  if(pageId==='grammar')renderGrammar();
+  if(pageId==='testcenter')renderTestCenter();
+  if(pageId==='kanjicombat')renderKanjiCombat();
+  if(pageId==='profile')renderProfilePage();
+
+  updateBottomNav(pageId);
   scrollTo(0,0);
+}
+function goHomeRoot(){
+  navigationStack=['home'];
+  if(window.history && history.pushState){
+    try{history.pushState({page:'home'},'', '#home');}catch(e){}
+  }
+  showPageContent('home');
+}
+function backOneStep(){
+  window.history.back();
+}
+
+function showPage(id,pushHistory=true){
+  if(pushHistory){
+    navTo(id);
+  }else{
+    showPageContent(id);
+  }
 }
 function closeTransientPanels(){
   try{closeGrammarIntro&&closeGrammarIntro()}catch(e){}
   try{closeKanjiOpenPanels&&closeKanjiOpenPanels()}catch(e){}
+  try{closeRandomDrawer&&closeRandomDrawer()}catch(e){}
   document.querySelectorAll('.roadmapGroup[open]').forEach(d=>d.removeAttribute('open'));
+  document.querySelectorAll('details[name="main-accordion"][open], .mainStudyDrawer[open]').forEach(d=>d.removeAttribute('open'));
 }
-function navTo(id){closeTransientPanels();showPage(id);}
-function updateBottomNav(id){
-  document.querySelectorAll('.bottomNav .navBtn').forEach(b=>b.classList.toggle('active',b.dataset.nav===id));
+function navTo(pageId){
+  pageId=normalizeAppPage(pageId);
+
+  if(pageId===currentPage){
+    updateBottomNav(pageId);
+    return;
+  }
+
+  navigationStack.push(pageId);
+
+  if(window.history && history.pushState){
+    try{
+      history.pushState({page:pageId},'', '#'+pageId);
+    }catch(e){}
+  }
+
+  showPageContent(pageId);
 }
 function renderProfilePage(){
   const box=byId('profileWarriorBox'); if(!box)return;
@@ -5346,16 +5656,70 @@ function renderProfilePage(){
     box.innerHTML=`<button class="authMiniBtn" onclick="showAuthModal('Đăng nhập để lưu hành trình riêng.')">Đăng nhập để lưu tiến độ</button>`;
   }
 }
+
+function pageFromHash(){
+  const raw=(location.hash||'#home').replace('#','').trim();
+  return normalizeAppPage(raw||'home');
+}
+function syncPageFromLocation(){
+  const page=pageFromHash();
+  showPageContent(page);
+}
+
 function setupAndroidBackButton(){
-  if(!window.history||!history.pushState)return;
-  try{history.replaceState({page:'home'},'',location.pathname+location.search+'#home');}
-  catch(e){}
-  window.addEventListener('popstate',function(){
+  if(!window.history || !history.pushState)return;
+
+  try{
+    history.replaceState({page:pageFromHash()},'', '#'+pageFromHash());
+  }catch(e){}
+
+  window.onpopstate=function(event){
     const modal=byId('authorModal');
-    if(modal&&modal.classList.contains('show')){modal.classList.remove('show');history.pushState({page:currentPage},'',location.pathname+location.search+'#'+currentPage);return;}
-    if(currentPage!=='home'){showPage('home',false);history.pushState({page:'home'},'',location.pathname+location.search+'#home');return;}
-    // Ở màn hình chính vẫn giữ app lại, tránh WebView nhận Back rồi thoát app ngoài ý muốn.
-    history.pushState({page:'home'},'',location.pathname+location.search+'#home');
+    if(modal&&modal.classList.contains('show')){
+      modal.classList.remove('show');
+      try{history.pushState({page:currentPage||'home'},'', '#'+(currentPage||'home'));}catch(e){}
+      return;
+    }
+
+    const authOverlay=byId('authOverlay');
+    if(authOverlay&&authOverlay.classList.contains('show')){
+      authOverlay.classList.remove('show');
+      try{history.pushState({page:currentPage||'home'},'', '#'+(currentPage||'home'));}catch(e){}
+      return;
+    }
+
+    const authProfilePanel=byId('authProfilePanel');
+    if(authProfilePanel&&authProfilePanel.classList.contains('show')){
+      authProfilePanel.classList.remove('show');
+      try{history.pushState({page:currentPage||'home'},'', '#'+(currentPage||'home'));}catch(e){}
+      return;
+    }
+
+    if(navigationStack.length>1){
+      navigationStack.pop();
+    }
+
+    // iOS Safari swipe-back can restore from bfcache.
+    // Use requestAnimationFrame to avoid UI jank during gesture completion.
+    const targetPage=(event.state&&event.state.page)?event.state.page:pageFromHash();
+    requestAnimationFrame(function(){
+      showPageContent(targetPage||'home');
+    });
+  };
+
+  window.addEventListener('pageshow',function(event){
+    // Safari/iOS may restore a cached DOM after swipe-back.
+    // Force sync with current URL hash after the page is visible again.
+    requestAnimationFrame(function(){
+      syncPageFromLocation();
+    });
+  });
+
+  window.addEventListener('hashchange',function(){
+    // Extra safety for Safari cases where hash changes without normal popstate.
+    requestAnimationFrame(function(){
+      syncPageFromLocation();
+    });
   });
 }
 function setMode(mode,restart=true){currentMode=mode;document.querySelectorAll('[data-modebtn], #mMeaning, #mReading, #mKanji').forEach(b=>b.classList.remove('active'));if(mode==='meaning'){byId('mMeaning')?.classList.add('active');document.querySelectorAll('[data-modebtn="meaning"]').forEach(b=>b.classList.add('active'))}if(mode==='reading'){byId('mReading')?.classList.add('active');document.querySelectorAll('[data-modebtn="reading"]').forEach(b=>b.classList.add('active'))}if(mode==='kanji'){byId('mKanji')?.classList.add('active');document.querySelectorAll('[data-modebtn="kanji"]').forEach(b=>b.classList.add('active'))}
@@ -5381,11 +5745,30 @@ function lockedRoadmap(label){
 }
 function smartRoadmapToggle(el){
   if(!el || !el.open) return;
+  closeRandomDrawer();
   const scope=el.getAttribute('data-roadmap-scope')||'global';
   document.querySelectorAll(`details.roadmapGroup[data-roadmap-scope="${scope}"]`).forEach(d=>{
     if(d!==el) d.open=false;
   });
 }
+function closeRandomDrawer(){
+  document.getElementById('randomReviewDrawer')?.removeAttribute('open');
+}
+function closeMainAccordions(except=null){
+  document.querySelectorAll('details[name="main-accordion"], .mainStudyDrawer[open]').forEach(d=>{if(d!==except)d.removeAttribute('open')});
+}
+function smartMainAccordion(el){
+  if(!el || !el.open)return;
+  closeGrammarIntro && closeGrammarIntro();
+  closeMainAccordions(el);
+  document.querySelectorAll('.roadmapGroup[open]').forEach(d=>d.removeAttribute('open'));
+}
+function smartRandomToggle(el){
+  if(!el || !el.open) return;
+  closeMainAccordions(el);
+  document.querySelectorAll('.roadmapGroup[open]').forEach(d=>d.removeAttribute('open'));
+}
+
 function vocabLessonCard(l){
   let k=l.words.filter(w=>hasKanji(w.jp)).length;
   let best=getVocabBestForLesson(l.id);
@@ -5399,45 +5782,100 @@ function renderLessons(){
   let box=byId('lessonList');
   byId('vocabHeaderCard')?.classList.remove('vocabHeaderCompact');
   byId('quizCard').classList.add('hidden');
+  byId('studyGrammarCard')?.classList.remove('show');
   box.classList.remove('hidden');
+
   const n5Lessons=LESSONS.filter(l=>lessonInRange(l,1,25));
   const n4Lessons=LESSONS.filter(l=>lessonInRange(l,26,50));
-  let html=`<div class="randomZone">
-    <div class="randomZoneTitle">🎲 Ôn tập tổng hợp</div>
-    <div class="randomZoneSub">Danh Sách Đen và Random thông minh nằm trên cùng. Vào là chiến ngay, khỏi lạc trong rừng bài.</div>
-    <div class="randomCardGrid">
-      <button class="randomCard basis" onclick="startRandom(1,25)">
-        <div class="randomCardIcon">🔥</div><div class="randomCardTitle">Ôn nền</div><div class="randomCardMeta">Bài 1–25 · ôn lại nền móng</div>
-      </button>
-      <button class="randomCard combat" onclick="startRandom(26,50)">
-        <div class="randomCardIcon">⚔️</div><div class="randomCardTitle">Combat</div><div class="randomCardMeta">Bài 26–50 · tăng độ khó</div>
-      </button>
-      <button class="randomCard custom" onclick="toggleCustomRandom()">
-        <div class="randomCardIcon">🎯</div><div class="randomCardTitle">Tự chọn bài</div><div class="randomCardMeta">Chọn khoảng bài muốn luyện</div>
-      </button>
-      <button class="randomCard blacklist" onclick="startWrongWordsReview()">
-        <div class="randomCardIcon">💀</div><div class="randomCardTitle">Danh Sách Đen</div><div class="randomCardMeta">Ôn tập những từ các hạ đã đấm trượt gần đây</div><div id="blacklistCount" class="blacklistCount">Đang có ${wrongWordsCount()} từ</div>
-      </button>
-    </div>
-    <div id="customRandomPanel" class="customRandomPanel hidden">
-      <div class="customInputs">
-        <label>START<input id="randomStartInput" type="number" min="1" max="50" value="10" inputmode="numeric"></label>
-        <label>END<input id="randomEndInput" type="number" min="1" max="50" value="15" inputmode="numeric"></label>
+
+  let randomBlock=`<details id="randomReviewDrawer" name="main-accordion" class="mainStudyDrawer randomZone smartDrawer" ontoggle="smartMainAccordion(this)">
+    <summary>🎲 Ôn tập tổng hợp (Bấm để chọn)</summary>
+    <div class="mainDrawerBody randomDrawerBody">
+      <div class="randomCardGrid">
+        <button class="randomCard basis" onclick="startRandom(1,25)">
+          <div class="randomCardIcon">🔥</div><div class="randomCardTitle">Ôn nền</div><div class="randomCardMeta">Bài 1–25</div>
+        </button>
+        <button class="randomCard combat" onclick="startRandom(26,50)">
+          <div class="randomCardIcon">⚔️</div><div class="randomCardTitle">Combat</div><div class="randomCardMeta">Bài 26–50</div>
+        </button>
+        <button class="randomCard custom" onclick="toggleCustomRandom()">
+          <div class="randomCardIcon">🎯</div><div class="randomCardTitle">Tự chọn</div><div class="randomCardMeta">Chọn khoảng bài</div>
+        </button>
+        <button class="randomCard blacklist" onclick="startWrongWordsReview()">
+          <div class="randomCardIcon">💀</div><div class="randomCardTitle">Danh Sách Đen</div><div class="randomCardMeta">Từ hay sai</div><div id="blacklistCount" class="blacklistCount">Đang có ${wrongWordsCount()} từ</div>
+        </button>
       </div>
-      <button class="mainBtn" onclick="startCustomRandom()">Bắt đầu ôn</button>
-      <div id="randomRangeWarn" class="randomWarn hidden"></div>
-      <div class="customHint"></div>
+      <div id="customRandomPanel" class="customRandomPanel hidden">
+        <div class="customInputs">
+          <label>START<input id="randomStartInput" type="number" min="1" max="50" value="10" inputmode="numeric"></label>
+          <label>END<input id="randomEndInput" type="number" min="1" max="50" value="15" inputmode="numeric"></label>
+        </div>
+        <button class="mainBtn" onclick="startCustomRandom()">Bắt đầu ôn</button>
+        <div id="randomRangeWarn" class="randomWarn hidden"></div>
+        <div class="customHint"></div>
+      </div>
     </div>
-  </div><div class="lessonDivider"></div><div class="roadmapWrap">`;
-  html+=roadmapDetails('roadmapN5','⚔️ Sơ cấp N5 - Minna no 日本語 (Bài 1–25)','[25 bài]',n5Lessons.map(vocabLessonCard).join(''),'vocab');
-  html+=roadmapDetails('roadmapN4','🐲 Sơ cấp N4 - Minna no 日本語 (Bài 26–50)','[25 bài]',n4Lessons.map(vocabLessonCard).join(''),'vocab');
-  html+=lockedRoadmap('🔒 Trung cấp N3');
-  html+=lockedRoadmap('🔒 Thượng cấp N2');
-  html+=lockedRoadmap('🔒 Tối thượng N1');
-  html+='</div>';
-  box.innerHTML=html;
+  </details>`;
+
+  let vocabBlock=`<details name="main-accordion" class="mainStudyDrawer vocabDrawer" ontoggle="smartMainAccordion(this)">
+    <summary>📚 Từ Vựng & Kanji</summary>
+    <div class="mainDrawerBody"><div class="roadmapWrap">
+      ${roadmapDetails('roadmapN5','Bài 1 - 25 (Sơ cấp N5)','[25 bài]',n5Lessons.map(vocabLessonCard).join(''),'vocab-main')}
+      ${roadmapDetails('roadmapN4','Bài 26 - 50 (Sơ cấp N4)','[25 bài]',n4Lessons.map(vocabLessonCard).join(''),'vocab-main')}
+      ${lockedVocabRoadmap('Từ Vựng N3')}
+      ${lockedVocabRoadmap('Từ Vựng N2')}
+      ${lockedVocabRoadmap('Từ Vựng N1')}
+    </div></div>
+  </details>`;
+
+  box.innerHTML=`<div class="mainStudyStack">${randomBlock}${vocabBlock}</div>`;
 }
-function buildQuestions(words){return shuffle(words).map(w=>Object.assign({},w))}function enterVocabFocus(){byId('lessonList').classList.add('hidden');byId('vocabHeaderCard')?.classList.add('vocabHeaderCompact');byId('quizCard').classList.remove('hidden');byId('vocabFocusTitle').textContent=(currentLesson._random?currentLesson.title:`Bài ${currentLesson.id}: ${currentLesson.title}`);setMode(currentMode,false);scrollTo(0,0)}function backToVocabLessons(){currentItem=null;byId('quizCard').classList.add('hidden');byId('vocabHeaderCard')?.classList.remove('vocabHeaderCompact');byId('lessonList').classList.remove('hidden');scrollTo(0,0)}function startLesson(id){currentLesson=LESSONS.find(l=>String(l.id)===String(id));questions=buildQuestions(currentLesson.words.map(w=>Object.assign({},w,{lesson:currentLesson.id})));resetVocabRun();enterVocabFocus();nextRender()}function getRandomWordsByRange(start=1,end=25){
+function lockedVocabRoadmap(label){
+  return `<div class="roadmapLocked vocabLocked" onclick="alert('Kho ${label} sẽ mở sau. Cứ đập chắc N5/N4 trước đã!')"><div>${label}<small>Sẽ mở sau</small></div><span>🔒</span></div>`;
+}
+function grammarCardMain(g){
+  let done=isGrammarMastered(g.lesson);
+  return `<button class="grammarSelectCard ${done?'mastered':''}" onclick="showEmbeddedGrammarLesson(${g.lesson})"><div class="lessonTop"><div><b>${grammarTitleHTML(g)}</b><div class="note">${g.items.length} mẫu câu • bấm để học riêng bài này</div></div><span class="masteryPill">${done?'✅ Mastered':'⚪ Chưa nắm'}</span></div></button>`;
+}
+function ensureStudyGrammarCard(){
+  let card=byId('studyGrammarCard');
+  if(!card){
+    card=document.createElement('div');
+    card.id='studyGrammarCard';
+    card.className='card embeddedGrammarCard';
+    byId('vocab')?.insertBefore(card, byId('quizCard'));
+  }
+  return card;
+}
+function showEmbeddedGrammarLesson(id){
+  closeMainAccordions();
+  closeGrammarIntro();
+  let g=GRAMMAR.find(x=>Number(x.lesson)===Number(id));
+  if(!g)return;
+  let box=ensureStudyGrammarCard();
+  let done=isGrammarMastered(id);
+  byId('lessonList')?.classList.add('hidden');
+  byId('quizCard')?.classList.add('hidden');
+  byId('vocabHeaderCard')?.classList.add('vocabHeaderCompact');
+  box.classList.add('show');
+  box.innerHTML=`<div class="grammarHead"><h2 class="grammarHeadTitle">${grammarTitleHTML(g)}</h2><button class="miniBack" onclick="backToStudyMenu()">Chọn mục khác</button></div><div class="grammarMasteryRow"><span class="masteryPill">${done?'✅ Bài này đã Mastered':'⚪ Bài này chưa Mastery'}</span><button class="masteryBtn ${done?'done':''}" onclick="toggleEmbeddedGrammarMastery(${id},${done?'false':'true'})">${done?'Bỏ đánh dấu Mastery':'Đã nắm bài này'}</button></div>${g.items.map(x=>`<div class="example"><div class="grammarPattern">${hi(x.p)}</div><div><span class="lbl lblMeaning">Nghĩa:</span> ${x.m}</div><div class="grammarExampleJp"><span class="lbl lblExample">Ví dụ:</span> ${hi(x.e)}</div><div><span class="lbl lblTrans">Dịch:</span> ${x.v}</div><div class="note"><span class="lbl lblEasy">Dễ hiểu:</span> ${x.n}</div>${x.k?`<div class="kanjiNote"><span class="lbl lblKanji">Lưu ý:</span> ${x.k}</div>`:''}</div>`).join('')}`;
+  scrollTo(0,0);
+}
+function toggleEmbeddedGrammarMastery(id,done=true){
+  let m=getGrammarMastery();
+  if(done)m[id]=new Date().toISOString();else delete m[id];
+  saveGrammarMastery(m);
+  showEmbeddedGrammarLesson(id);
+}
+function backToStudyMenu(){
+  byId('studyGrammarCard')?.classList.remove('show');
+  byId('quizCard')?.classList.add('hidden');
+  byId('vocabHeaderCard')?.classList.remove('vocabHeaderCompact');
+  byId('lessonList')?.classList.remove('hidden');
+  renderLessons();
+  scrollTo(0,0);
+}
+function buildQuestions(words){return shuffle(words).map(w=>Object.assign({},w))}function enterVocabFocus(){byId('studyGrammarCard')?.classList.remove('show');byId('lessonList').classList.add('hidden');byId('vocabHeaderCard')?.classList.add('vocabHeaderCompact');byId('quizCard').classList.remove('hidden');byId('vocabFocusTitle').textContent=(currentLesson._random?currentLesson.title:`Bài ${currentLesson.id}: ${currentLesson.title}`);setMode(currentMode,false);scrollTo(0,0)}function backToVocabLessons(){currentItem=null;byId('studyGrammarCard')?.classList.remove('show');byId('quizCard').classList.add('hidden');byId('vocabHeaderCard')?.classList.remove('vocabHeaderCompact');byId('lessonList').classList.remove('hidden');scrollTo(0,0)}function startLesson(id){closeRandomDrawer&&closeRandomDrawer();closeMainAccordions&&closeMainAccordions();currentLesson=LESSONS.find(l=>String(l.id)===String(id));questions=buildQuestions(currentLesson.words.map(w=>Object.assign({},w,{lesson:currentLesson.id})));resetVocabRun();enterVocabFocus();nextRender()}function getRandomWordsByRange(start=1,end=25){
   let s=Number(start), e=Number(end);
   if(!Number.isFinite(s))s=1;
   if(!Number.isFinite(e))e=s;
@@ -5450,6 +5888,7 @@ function buildQuestions(words){return shuffle(words).map(w=>Object.assign({},w))
 function toggleCustomRandom(){const p=byId('customRandomPanel');if(p)p.classList.toggle('hidden');}
 function startCustomRandom(){const s=byId('randomStartInput')?.value||1;const e=byId('randomEndInput')?.value||1;startRandom(s,e);}
 function startRandom(start=1,end=25){
+  closeRandomDrawer&&closeRandomDrawer();closeMainAccordions&&closeMainAccordions();
   const pack=getRandomWordsByRange(start,end);
   const warn=byId('randomRangeWarn');
   if(!pack.words.length){if(warn){warn.textContent='Không có từ nào trong vùng này. Nhập lại Start/End cho đàng hoàng nha.';warn.classList.remove('hidden');}return;}
@@ -5483,42 +5922,104 @@ function chooseAnswer(answer,btn,mode){
 function nextQuestion(){if(index+1>=questions.length){finishQuiz()}else{index++;nextRender()}}function finishQuiz(){let done=answers.filter(Boolean),c=done.filter(a=>a.ok).length,wrong=questions.length-c,p=Math.round(c/questions.length*100),msgs=rankFeedback(p);saveVocabMasteryScore(p,questions.length,c,bestCombo);clearTimeout(comboTimer);byId('quizCard').classList.add('finishScreen');byId('questionText').innerHTML='<div class="finishTitle">Hoàn thành bài luyện</div>';let el=byId('wordText');el.classList.remove('long','xlong');el.innerHTML='<span class="scoreBig">'+p+'% mastery</span>';byId('optionsBox').innerHTML='';byId('resultBox').innerHTML=`<div class="finishGrid"><div class="finishBox"><div class="finishNum">${c}</div><div class="finishLbl">✅ Đúng</div></div><div class="finishBox"><div class="finishNum">${wrong}</div><div class="finishLbl">❌ Sai</div></div><div class="finishBox"><div class="finishNum">${p}%</div><div class="finishLbl">🎯 Mastery</div></div></div><div class="rankMsg">${msgs.join('<br>')}</div><div class="note" style="margin-top:8px">Best combo: 🔥 x${bestCombo}</div><div class="resultActions"><button class="mainBtn" onclick="restartCurrentLesson()">Luyện lại bài này</button><button class="smallBtn" onclick="backToVocabLessons()">Chọn bài khác</button></div>`;byId('learnBox').innerHTML=done.map(a=>`<div class="reviewRow"><b>${a.jp}</b>（${a.reading}）<br>Bạn chọn: <span style="color:${a.ok?'#86efac':'#fca5a5'}">${a.selected}</span><br>Đúng: <b>${a.answer}</b><br>Nghĩa: ${a.vi}</div>`).join('');byId('learnBox').classList.remove('hidden');byId('nextBtn').classList.add('hidden')}
 function restartCurrentLesson(){if(currentLesson&&currentLesson._blacklist){return startWrongWordsReview();}questions=buildQuestions(currentLesson._randomRange?getRandomWordsByRange(currentLesson._randomRange[0],currentLesson._randomRange[1]).words:currentLesson.words.map(w=>Object.assign({},w,{lesson:currentLesson.id})));resetVocabRun();nextRender()}
 let speechVoicesReady=false;
+let speechVoiceCache=[];
 function warmupSpeechVoices(){
   if(!('speechSynthesis' in window))return;
-  const load=()=>{try{speechSynthesis.getVoices();speechVoicesReady=true;}catch(e){}};
+  const load=()=>{try{speechVoiceCache=speechSynthesis.getVoices()||[];speechVoicesReady=speechVoiceCache.length>0;}catch(e){}};
   load();
   if(speechSynthesis.onvoiceschanged!==undefined) speechSynthesis.onvoiceschanged=load;
   document.addEventListener('visibilitychange',()=>{if(!document.hidden)load();});
 }
+function waitForSpeechVoices(){
+  return new Promise(resolve=>{
+    if(!('speechSynthesis' in window)){resolve([]);return;}
+    const current=speechSynthesis.getVoices? speechSynthesis.getVoices():[];
+    if(current&&current.length){speechVoiceCache=current;speechVoicesReady=true;resolve(current);return;}
+    let done=false;
+    const finish=()=>{if(done)return;done=true;const v=speechSynthesis.getVoices? speechSynthesis.getVoices():[];speechVoiceCache=v||[];speechVoicesReady=(v||[]).length>0;resolve(v||[]);};
+    const old=speechSynthesis.onvoiceschanged;
+    speechSynthesis.onvoiceschanged=()=>{try{if(typeof old==='function')old();}catch(e){} finish();};
+    setTimeout(finish,700);
+  });
+}
+function voiceScore(v,lang){
+  const name=String(v.name||'');
+  const uri=String(v.voiceURI||'');
+  const l=String(v.lang||'').toLowerCase();
+  const hay=(name+' '+uri).toLowerCase();
+  let score=0;
+  if(lang==='ja-JP'){
+    if(l==='ja-jp')score+=100;
+    else if(l.startsWith('ja'))score+=60;
+    else return -999;
+    if(/google.*(日本語|japanese)|日本語.*google/i.test(name+' '+uri))score+=80;
+    if(/natural|neural|premium|enhanced/i.test(name+' '+uri))score+=45;
+    if(/kyoko|otoya|ichiro|haruka|nanami|japanese/i.test(name+' '+uri))score+=25;
+    if(v.localService)score+=8;
+  }else if(lang==='vi-VN'){
+    if(l==='vi-vn')score+=100;
+    else if(l.startsWith('vi'))score+=55;
+    else return -999;
+    if(/google|natural|neural|premium|enhanced/i.test(name+' '+uri))score+=35;
+  }else{
+    if(l===String(lang).toLowerCase())score+=100;
+    else if(l.startsWith(String(lang).slice(0,2).toLowerCase()))score+=50;
+    else return -999;
+  }
+  return score;
+}
 function pickVoice(lang){
   if(!('speechSynthesis' in window))return null;
-  const voices=speechSynthesis.getVoices? speechSynthesis.getVoices():[];
-  return voices.find(v=>String(v.lang||'').toLowerCase()===lang.toLowerCase())||voices.find(v=>String(v.lang||'').toLowerCase().startsWith(lang.slice(0,2).toLowerCase()))||null;
+  const voices=(speechVoiceCache&&speechVoiceCache.length?speechVoiceCache:(speechSynthesis.getVoices? speechSynthesis.getVoices():[]))||[];
+  const ranked=voices.map(v=>({v,score:voiceScore(v,lang)})).filter(x=>x.score>-999).sort((a,b)=>b.score-a.score);
+  return ranked.length?ranked[0].v:null;
 }
-function speakTextStable(text,lang,rate){
+function normalizeJapaneseSpeechText(item){
+  let t=(item&&item.reading)||'';
+  if(!t || /[a-zA-Z]/.test(t)) t=(item&&item.jp)||'';
+  t=String(t).replace(/[〜~]/g,'').replace(/[()（）［］\[\]]/g,'').trim();
+  return t||String((item&&item.jp)||'').trim();
+}
+function cleanVietnameseSpeechMeaning(vi){
+  let t=String(vi||'').replace(/\([^)]*\)/g,'').replace(/（[^）]*）/g,'').trim();
+  t=t.split(/\s*[\/／;；｜|]\s*/)[0]||t;
+  t=t.split(/,\s*/)[0]||t;
+  t=t.replace(/\s+/g,' ').trim();
+  return t;
+}
+function speakTextStable(text,lang,rate,opts={}){
   return new Promise(resolve=>{
     if(!text||!('speechSynthesis' in window)||!('SpeechSynthesisUtterance' in window)){resolve();return;}
     const synth=window.speechSynthesis;
     let done=false;
     const finish=()=>{if(done)return;done=true;clearTimeout(timer);resolve();};
     const utter=new SpeechSynthesisUtterance(String(text));
-    utter.lang=lang; utter.rate=rate||1; utter.pitch=1; utter.volume=1;
-    const voice=pickVoice(lang); if(voice)utter.voice=voice;
+    utter.lang=lang; utter.rate=rate||1; utter.pitch=1.0; utter.volume=1;
+    const voice=pickVoice(lang);
+    if(voice)utter.voice=voice;
     utter.onend=finish; utter.onerror=finish;
-    const timer=setTimeout(finish, Math.max(2500,String(text).length*180));
+    const timer=setTimeout(finish, Math.max(2600,String(text).length*(lang==='ja-JP'?190:150)));
     try{
-      synth.cancel();
-      setTimeout(()=>{try{synth.speak(utter)}catch(e){finish();}},90);
+      if(opts.cancelBefore!==false)synth.cancel();
+      setTimeout(()=>{try{synth.speak(utter)}catch(e){finish();}},80);
     }catch(e){finish();}
   });
 }
 async function speakCurrent(){
   if(!currentItem||!('speechSynthesis'in window))return;
   warmupSpeechVoices();
-  const jpText=currentItem.reading||currentItem.jp;
-  await speakTextStable(jpText,'ja-JP',.86);
-  await new Promise(r=>setTimeout(r,180));
-  await speakTextStable('là '+currentItem.vi,'vi-VN',.92);
+  await waitForSpeechVoices();
+  const jpText=normalizeJapaneseSpeechText(currentItem);
+  const viText=cleanVietnameseSpeechMeaning(currentItem.vi);
+  const jaVoice=pickVoice('ja-JP');
+  if(!jaVoice){
+    alert('Trình duyệt hiện tại chưa có giọng Nhật ja-JP tốt. Hãy mở bằng Chrome/Safari và thử lại.');
+    return;
+  }
+  try{window.speechSynthesis.cancel();}catch(e){}
+  await speakTextStable(jpText,'ja-JP',.88,{cancelBefore:false});
+  await new Promise(r=>setTimeout(r,600));
+  if(viText) await speakTextStable(viText,'vi-VN',.92,{cancelBefore:false});
 }
 
 
@@ -5621,7 +6122,7 @@ function showGrammarMenu(){
   let st=grammarMasteryPercent();
   const n5=GRAMMAR.filter(g=>Number(g.lesson)>=1&&Number(g.lesson)<=25).map(grammarCard).join('');
   const n4=GRAMMAR.filter(g=>Number(g.lesson)>=26&&Number(g.lesson)<=50).map(grammarCard).join('');
-  box.innerHTML=grammarIntro()+`<div class="grammarMasteryRow"><span class="masteryPill">🏆 Mastery: ${st.done}/${st.total} bài • ${st.pct}%</span></div><div class="roadmapWrap">${roadmapDetails('roadmapN5','⚔️ Sơ cấp N5 - Minna no 日本語 (Bài 1–25)','[25 bài]',n5,'grammar')}${roadmapDetails('roadmapN4','🐲 Sơ cấp N4 - Minna no 日本語 (Bài 26–50)','[25 bài]',n4,'grammar')}${lockedRoadmap('🔒 Trung cấp N3')}${lockedRoadmap('🔒 Thượng cấp N2')}${lockedRoadmap('🔒 Tối thượng N1')}</div>`;
+  box.innerHTML=grammarIntro()+`<div class="grammarMasteryRow"><span class="masteryPill">🏆 Mastery: ${st.done}/${st.total} bài • ${st.pct}%</span></div><div class="roadmapWrap grammarOnlyWrap">${roadmapDetails('roadmapN5','Bài 1 - 25 (Sơ cấp N5)','[25 bài]',n5,'grammar')}${roadmapDetails('roadmapN4','Bài 26 - 50 (Sơ cấp N4)','[25 bài]',n4,'grammar')}</div>`;
 }
 function showGrammarLesson(id){closeGrammarIntro();let g=GRAMMAR.find(x=>x.lesson===id);let box=byId('grammarList');let done=isGrammarMastered(id);box.innerHTML=`<div class="grammarHead"><h2 class="grammarHeadTitle">${grammarTitleHTML(g)}</h2><button class="miniBack" onclick="showGrammarMenu()">Chọn bài khác</button></div><div class="grammarMasteryRow"><span class="masteryPill">${done?'✅ Bài này đã Mastered':'⚪ Bài này chưa Mastery'}</span><button class="masteryBtn ${done?'done':''}" onclick="markGrammarMastery(${id},${done?'false':'true'})">${done?'Bỏ đánh dấu Mastery':'Đã nắm bài này'}</button></div>${g.items.map(x=>`<div class="example"><div class="grammarPattern">${hi(x.p)}</div><div><span class="lbl lblMeaning">Nghĩa:</span> ${x.m}</div><div class="grammarExampleJp"><span class="lbl lblExample">Ví dụ:</span> ${hi(x.e)}</div><div><span class="lbl lblTrans">Dịch:</span> ${x.v}</div><div class="note"><span class="lbl lblEasy">Dễ hiểu:</span> ${x.n}</div>${x.k?`<div class="kanjiNote"><span class="lbl lblKanji">Lưu ý:</span> ${x.k}</div>`:''}</div>`).join('')}`;scrollTo(0,0)}
 
@@ -5691,10 +6192,11 @@ async function unlockWarriorBadge(stage,score,passed){
 }
 
 function updateWarriorHeader(){
-  const bar=byId('authStatusBar'); if(!bar)return;
-  if(!authState.user){bar.innerHTML=`<button class="authMiniBtn" onclick="showAuthModal('Đăng nhập để lưu hành trình riêng.')">Đăng nhập</button>`;renderProfilePage();return;}
-  bar.innerHTML=`<span class="warriorPill">⚔️ Chiến binh: ${safeText(authState.user)} ${renderWarriorBadges()}</span><button class="authMiniBtn pack" onclick="openProfilePanel()">Sao lưu chiến tích</button><button class="authMiniBtn logout" onclick="logoutWarrior()">Đăng xuất</button>`;
-  renderProfilePage();
+  // v75: Header chỉ dành cho thương hiệu. Tài khoản/Huy hiệu/Sao lưu/Đăng xuất chuyển vào tab Cá nhân.
+  const bar=byId('authStatusBar');
+  if(bar) bar.innerHTML='';
+  try{renderProfilePage();}catch(e){}
+  try{renderProfileArsenal&&renderProfileArsenal();}catch(e){}
 }
 function openProfilePanel(){byId('profileExportText').value=''; byId('profilePass').value=''; byId('authProfilePanel')?.classList.add('show')}
 function closeProfilePanel(){byId('authProfilePanel')?.classList.remove('show')}
@@ -5766,8 +6268,8 @@ const kanjiStrokeCache={};
 function renderKanjiCombat(){
   const root=byId('kanjiCombatRoot');
   root.innerHTML=`<div class="title">🐉 KANJI COMBAT</div><div class="desc">Kanji theo cấp độ JLPT: nhận mặt chữ trước, rồi luyện Combo Từ Vựng theo từng cấp.</div><div class="kanjiLevelGrid">
-    <div class="kanjiLevelCard unlocked" onclick="showKanjiModeMenu('N5')"><div class="levelName">⚔️ N5 — Tân thủ sống sót</div><div class="moveName">📜 Nhận Mặt Cầu Sinh</div><div class="bookName">《Kanji Tâm Pháp》</div><div class="kanjiCount">${KANJI_N5_DATA.length} Kanji • Lõi N5</div></div>
-    <div class="kanjiLevelCard unlocked" onclick="showKanjiModeMenu('N4')"><div class="levelName">🐲 N4 — Khai mở nhãn giới</div><div class="moveName">👁️ Khai Nhãn Đọc Thuật</div><div class="bookName">《Kanji Thần Công》</div><div class="kanjiCount">${KANJI_N4_DATA.length} Kanji • Lõi N4</div></div>
+    <div class="kanjiLevelCard unlocked" onclick="showKanjiModeMenu('N5')"><div class="levelName">⚔️ N5 — Tân thủ sống sót</div><div class="moveName">📜 Nhận Mặt Cầu Sinh</div><div class="bookName">《Kanji Tâm Pháp》</div></div>
+    <div class="kanjiLevelCard unlocked" onclick="showKanjiModeMenu('N4')"><div class="levelName">🐲 N4 — Khai mở nhãn giới</div><div class="moveName">👁️ Khai Nhãn Đọc Thuật</div><div class="bookName">《Kanji Thần Công》</div></div>
     <div class="kanjiLevelCard locked"><div class="levelName">⚔️ N3 — Tuyệt chiêu môn phái</div><div class="moveName">🐉 Nhất Kiếm Đoạn Tự</div><div class="bookName">《Kanji Liên Hoàn Trận》</div><div class="kanjiCount">Sẽ mở sau</div></div>
     <div class="kanjiLevelCard locked"><div class="levelName">⚔️ N2 — Đại công cáo thành</div><div class="moveName">☠️ Vạn Tự Xuyên Tâm</div><div class="bookName">《Tuyệt Kỹ Đọc Hiểu》</div><div class="kanjiCount">Sẽ mở sau</div></div>
     <div class="kanjiLevelCard locked"><div class="levelName">⚔️ N1 — Độc bá giang hồ</div><div class="moveName">🐲 Nhật Tự Vô Song</div><div class="bookName">《Thiên Hạ Vô Tự》</div><div class="kanjiCount">Sẽ mở sau</div></div>
@@ -6170,7 +6672,8 @@ function mcGetBadgeStateSync(){
 function renderProfileArsenal(){
   try{
     const nameEl = document.getElementById('profileWarriorName');
-    if(nameEl) nameEl.textContent = mcGetCurrentUserName() || 'Chưa đăng nhập';
+    const isLogged = !!mcGetCurrentUserName();
+    if(nameEl) nameEl.textContent = isLogged ? mcGetCurrentUserName() : 'Chưa đăng nhập';
     const b = mcGetBadgeStateSync();
     const n5 = document.getElementById('profileBadgeN5');
     const n4 = document.getElementById('profileBadgeN4');
@@ -6178,6 +6681,14 @@ function renderProfileArsenal(){
     if(n5) n5.classList.toggle('unlocked', !!b.n5);
     if(n4) n4.classList.toggle('unlocked', !!b.n4);
     if(g) g.classList.toggle('unlocked', !!b.general);
+    const actions = document.querySelector('#profile .profileActions');
+    if(actions){
+      if(isLogged){
+        actions.innerHTML = `<button class="profileActionBtn backup" type="button" onclick="profileBackupAction()">💾 Sao lưu chiến tích</button><button class="profileActionBtn logout" type="button" onclick="logoutUser()">🚪 Đăng xuất</button>`;
+      }else{
+        actions.innerHTML = `<div class="profileLoginNotice">Đăng nhập để lưu tiến độ, huy hiệu và Danh Sách Đen riêng.</div><button class="profileActionBtn backup" type="button" onclick="showAuthModal('Đăng nhập để lưu hành trình riêng.')">⚔️ Đăng nhập / Đăng ký</button>`;
+      }
+    }
   }catch(e){}
 }
 async function profileBackupAction(){
