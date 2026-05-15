@@ -667,6 +667,33 @@ section{
   -webkit-overflow-scrolling:touch;
 }
 
+
+/* === v85 Pro UI Roadmap: locked future grammar levels === */
+.lockedRoadmapCard,
+.roadmapLocked.proLocked{
+  opacity:.55!important;
+  filter:grayscale(1);
+  cursor:pointer;
+  position:relative;
+  border:1px solid rgba(148,163,184,.24)!important;
+  background:linear-gradient(135deg,rgba(30,41,59,.72),rgba(15,23,42,.9))!important;
+  box-shadow:0 14px 36px rgba(0,0,0,.25)!important;
+  transition:transform .18s ease, opacity .18s ease, filter .18s ease;
+}
+.lockedRoadmapCard:active,
+.roadmapLocked.proLocked:active{transform:scale(.985);}
+.lockBadge{margin-left:8px;font-size:.9em;opacity:.9;}
+.lockedSubText{color:rgba(226,232,240,.62);font-size:13px;margin-top:6px;font-weight:800;letter-spacing:.3px;}
+.minaToast{
+  position:fixed;left:50%;bottom:96px;transform:translateX(-50%) translateY(18px);
+  max-width:min(88vw,420px);padding:14px 18px;border-radius:20px;
+  background:linear-gradient(135deg,rgba(15,23,42,.96),rgba(30,41,59,.96));
+  border:1px solid rgba(103,232,249,.35);color:#e2e8f0;font-size:14px;font-weight:800;text-align:center;
+  z-index:99999;box-shadow:0 18px 50px rgba(0,0,0,.45),0 0 22px rgba(103,232,249,.12);
+  opacity:0;pointer-events:none;transition:opacity .22s ease, transform .22s ease;
+}
+.minaToast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
 </style>
 
 
@@ -5574,6 +5601,9 @@ function showTrainingUi(){let q=byId('quizCard');q.classList.remove('finishScree
 function resetVocabRun(){index=0;answers=[];combo=0;bestCombo=0;clearTimeout(comboTimer)}
 function rankFeedback(p){if(p>=90)return ['🔥 “Được đấy. Kanji bắt đầu rén rồi.”','👹 “Mina chắc cũng không muốn gặp bạn nữa.”'];if(p>=70)return ['😎 “Ổn áp. Não bắt đầu load tiếng Nhật rồi đấy.”','⚡ “Thiếu chút nữa là thành quái vật kanji.”'];if(p>=50)return ['😬 “Học có vẻ có vào… nhưng vào hơi chậm.”'];return ['💀 “ĐM học kiểu gì mà từ vựng đấm phát nào trúng phát đó.”','☠️ “Não đang AFK à trời.”','😡 “Thôi thôi thôi xong… chết dở… ĐM.”']}
 let currentPage='home';
+let synth=window.speechSynthesis;
+let audioPrimed=false;
+let audioPrimeTried=false;
 let navigationStack=['home'];
 let isPopNavigation=false;
 
@@ -5631,6 +5661,7 @@ function closeTransientPanels(){
   document.querySelectorAll('details[name="main-accordion"][open], .mainStudyDrawer[open]').forEach(d=>d.removeAttribute('open'));
 }
 function navTo(pageId){
+  primeAndroidWebViewAudio();
   pageId=normalizeAppPage(pageId);
 
   if(pageId===currentPage){
@@ -5740,8 +5771,27 @@ function lessonInRange(l,start,end){
   const n=lessonNumberValue(l.id);
   return n!==null && n>=start && n<=end;
 }
+
+function showMinaToast(message){
+  let toast=document.getElementById('minaToast');
+  if(!toast){
+    toast=document.createElement('div');
+    toast.id='minaToast';
+    toast.className='minaToast';
+    document.body.appendChild(toast);
+  }
+  toast.textContent=message;
+  toast.classList.add('show');
+  clearTimeout(window.__minaToastTimer);
+  window.__minaToastTimer=setTimeout(()=>toast.classList.remove('show'),2600);
+}
+function showLockedLevel(level){
+  showMinaToast('Nội dung '+level+' đang được biên soạn và sẽ sớm ra mắt trong bản cập nhật tới!');
+}
+
 function lockedRoadmap(label){
-  return `<div class="roadmapLocked" onclick="alert('Ải này chưa mở, hãy tập trung luyện xong N4 đã!')"><div>${label}<small>Đang rèn kiếm</small></div><span>🔒</span></div>`;
+  const level=(String(label).match(/N[0-9]/)||['N3'])[0];
+  return `<div class="roadmapLocked proLocked lockedRoadmapCard" onclick="showLockedLevel('${level}')"><div><b>${label}<span class="lockBadge">🔒</span></b><small class="lockedSubText">Sẽ mở sau</small></div><span>🔒</span></div>`;
 }
 function smartRoadmapToggle(el){
   if(!el || !el.open) return;
@@ -5831,7 +5881,8 @@ function renderLessons(){
   box.innerHTML=`<div class="mainStudyStack">${randomBlock}${vocabBlock}</div>`;
 }
 function lockedVocabRoadmap(label){
-  return `<div class="roadmapLocked vocabLocked" onclick="alert('Kho ${label} sẽ mở sau. Cứ đập chắc N5/N4 trước đã!')"><div>${label}<small>Sẽ mở sau</small></div><span>🔒</span></div>`;
+  const level=(String(label).match(/N[0-9]/)||['N3'])[0];
+  return `<div class="roadmapLocked proLocked lockedRoadmapCard" onclick="showLockedLevel('${level}')"><div><b>${label}<span class="lockBadge">🔒</span></b><small class="lockedSubText">Sẽ mở sau</small></div><span>🔒</span></div>`;
 }
 function grammarCardMain(g){
   let done=isGrammarMastered(g.lesson);
@@ -5987,21 +6038,82 @@ function cleanVietnameseSpeechMeaning(vi){
   t=t.replace(/\s+/g,' ').trim();
   return t;
 }
+
+function primeAndroidWebViewAudio(){
+  if(audioPrimeTried || audioPrimed)return;
+  audioPrimeTried=true;
+  try{
+    if(!synth && window.speechSynthesis)synth=window.speechSynthesis;
+    if(!synth || !('SpeechSynthesisUtterance' in window))return;
+
+    synth.cancel();
+    if(synth.resume)synth.resume();
+
+    const silent=new SpeechSynthesisUtterance(' ');
+    silent.lang='ja-JP';
+    silent.volume=0;
+    silent.rate=1;
+    silent.pitch=1;
+    silent.onend=function(){audioPrimed=true;};
+    silent.onerror=function(){
+      audioPrimed=false;
+      audioPrimeTried=false;
+    };
+
+    synth.speak(silent);
+
+    setTimeout(function(){
+      try{
+        if(synth.resume)synth.resume();
+      }catch(e){}
+    },120);
+  }catch(e){
+    audioPrimed=false;
+    audioPrimeTried=false;
+  }
+}
+
+function installAudioPrimeHooks(){
+  const prime=function(){primeAndroidWebViewAudio();};
+  document.addEventListener('pointerdown',prime,{once:true,passive:true});
+  document.addEventListener('touchstart',prime,{once:true,passive:true});
+  document.addEventListener('click',prime,{once:true,passive:true});
+}
+
 function speakTextStable(text,lang,rate,opts={}){
   return new Promise(resolve=>{
     if(!text||!('speechSynthesis' in window)||!('SpeechSynthesisUtterance' in window)){resolve();return;}
-    const synth=window.speechSynthesis;
+    if(!synth && window.speechSynthesis)synth=window.speechSynthesis;
+    if(!synth){resolve();return;}
+
     let done=false;
     const finish=()=>{if(done)return;done=true;clearTimeout(timer);resolve();};
+
     const utter=new SpeechSynthesisUtterance(String(text));
-    utter.lang=lang; utter.rate=rate||1; utter.pitch=1.0; utter.volume=1;
+    utter.lang=lang;
+    utter.rate=rate||0.88;
+    utter.pitch=1.0;
+    utter.volume=1;
+
     const voice=pickVoice(lang);
     if(voice)utter.voice=voice;
-    utter.onend=finish; utter.onerror=finish;
-    const timer=setTimeout(finish, Math.max(2600,String(text).length*(lang==='ja-JP'?190:150)));
+
+    utter.onend=finish;
+    utter.onerror=finish;
+
+    const timer=setTimeout(finish, Math.max(2800,String(text).length*(lang==='ja-JP'?210:165)));
+
     try{
+      // Android WebView hay pause/cẹt hàng chờ. Xóa hàng chờ + resume trước khi đọc.
       if(opts.cancelBefore!==false)synth.cancel();
-      setTimeout(()=>{try{synth.speak(utter)}catch(e){finish();}},80);
+      if(synth.resume)synth.resume();
+
+      setTimeout(()=>{
+        try{
+          if(synth.resume)synth.resume();
+          synth.speak(utter);
+        }catch(e){finish();}
+      },90);
     }catch(e){finish();}
   });
 }
@@ -6016,7 +6128,7 @@ async function speakCurrent(){
     alert('Trình duyệt hiện tại chưa có giọng Nhật ja-JP tốt. Hãy mở bằng Chrome/Safari và thử lại.');
     return;
   }
-  try{window.speechSynthesis.cancel();}catch(e){}
+  try{if(synth)synth.cancel(); if(synth&&synth.resume)synth.resume();}catch(e){}
   await speakTextStable(jpText,'ja-JP',.88,{cancelBefore:false});
   await new Promise(r=>setTimeout(r,600));
   if(viText) await speakTextStable(viText,'vi-VN',.92,{cancelBefore:false});
@@ -6122,7 +6234,7 @@ function showGrammarMenu(){
   let st=grammarMasteryPercent();
   const n5=GRAMMAR.filter(g=>Number(g.lesson)>=1&&Number(g.lesson)<=25).map(grammarCard).join('');
   const n4=GRAMMAR.filter(g=>Number(g.lesson)>=26&&Number(g.lesson)<=50).map(grammarCard).join('');
-  box.innerHTML=grammarIntro()+`<div class="grammarMasteryRow"><span class="masteryPill">🏆 Mastery: ${st.done}/${st.total} bài • ${st.pct}%</span></div><div class="roadmapWrap grammarOnlyWrap">${roadmapDetails('roadmapN5','Bài 1 - 25 (Sơ cấp N5)','[25 bài]',n5,'grammar')}${roadmapDetails('roadmapN4','Bài 26 - 50 (Sơ cấp N4)','[25 bài]',n4,'grammar')}</div>`;
+  box.innerHTML=grammarIntro()+`<div class="grammarMasteryRow"><span class="masteryPill">🏆 Mastery: ${st.done}/${st.total} bài • ${st.pct}%</span></div><div class="roadmapWrap grammarOnlyWrap">${roadmapDetails('roadmapN5','Bài 1 - 25 (Sơ cấp N5)','[25 bài]',n5,'grammar')}${roadmapDetails('roadmapN4','Bài 26 - 50 (Sơ cấp N4)','[25 bài]',n4,'grammar')}${lockedRoadmap('Ngữ pháp N3')}${lockedRoadmap('Ngữ pháp N2')}${lockedRoadmap('Ngữ pháp N1')}</div>`;
 }
 function showGrammarLesson(id){closeGrammarIntro();let g=GRAMMAR.find(x=>x.lesson===id);let box=byId('grammarList');let done=isGrammarMastered(id);box.innerHTML=`<div class="grammarHead"><h2 class="grammarHeadTitle">${grammarTitleHTML(g)}</h2><button class="miniBack" onclick="showGrammarMenu()">Chọn bài khác</button></div><div class="grammarMasteryRow"><span class="masteryPill">${done?'✅ Bài này đã Mastered':'⚪ Bài này chưa Mastery'}</span><button class="masteryBtn ${done?'done':''}" onclick="markGrammarMastery(${id},${done?'false':'true'})">${done?'Bỏ đánh dấu Mastery':'Đã nắm bài này'}</button></div>${g.items.map(x=>`<div class="example"><div class="grammarPattern">${hi(x.p)}</div><div><span class="lbl lblMeaning">Nghĩa:</span> ${x.m}</div><div class="grammarExampleJp"><span class="lbl lblExample">Ví dụ:</span> ${hi(x.e)}</div><div><span class="lbl lblTrans">Dịch:</span> ${x.v}</div><div class="note"><span class="lbl lblEasy">Dễ hiểu:</span> ${x.n}</div>${x.k?`<div class="kanjiNote"><span class="lbl lblKanji">Lưu ý:</span> ${x.k}</div>`:''}</div>`).join('')}`;scrollTo(0,0)}
 
@@ -6253,7 +6365,8 @@ async function initAuthSystem(){
 function closeKanjiOpenPanels(){document.querySelectorAll('.kanjiAnswerBox,.kanjiStrokePanel,.comboAnswerBox').forEach(e=>e.classList.add('hidden'))}
 
 (function(){function setup(){let btn=byId('authorNoteBtn'),modal=byId('authorModal'),close=byId('authorCloseBtn');if(!btn||!modal||!close)return;btn.onclick=()=>modal.classList.add('show');close.onclick=()=>modal.classList.remove('show');modal.onclick=e=>{if(e.target===modal)modal.classList.remove('show')}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',setup);else setup()})();
-async function bootMinaCombat(){await initPersistence();await initAuthSystem();setupAndroidBackButton();warmupSpeechVoices();renderLessons();renderGrammar();}
+async function bootMinaCombat(){await initPersistence();await initAuthSystem();installAudioPrimeHooks();
+setupAndroidBackButton();warmupSpeechVoices();renderLessons();renderGrammar();}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bootMinaCombat);else bootMinaCombat();
 
 
